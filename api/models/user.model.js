@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar:{
         type: String,
-        default:"https://sportshub.cbsistatic.com/i/2023/08/15/d6059664-fb2e-4d86-9456-4c38ca11c60a/one-piece-episode-1070-gear-5-luffy-anime.jpg"
+        default:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/1200px-Default_pfp.svg.png"
     },
 }, {timestamps: true});
 
