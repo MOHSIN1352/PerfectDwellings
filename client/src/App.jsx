@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Signin from './pages/Signin';
@@ -10,8 +11,14 @@ import CreateListing from './pages/CreateListing';
 import UpdateListing from './pages/UpdateListing';
 import Listing from './pages/Listing';
 import Search from './pages/Search';
+import ChatBot from './components/ChatBot';
+import ChatBotIcon from './components/ChatBotIcon';
+import Dashboard from './pages/Dashboard';
 
 export default function App() {
+
+  const [isChatbotOpen, setIsChatbotOpen] = useState(false);
+
   return (
     <BrowserRouter>
     <Header/>
@@ -28,8 +35,11 @@ export default function App() {
       <Route path='/profile' element={<Profile/>}/>
       <Route path='/create-listing' element={<CreateListing/>}/>
       <Route path='/update-listing/:listingId' element={<UpdateListing/>}/>
+      <Route path='/dashboard' element={<Dashboard />} />
       </Route>
     </Routes>
+    <ChatBotIcon onClick = {() => setIsChatbotOpen(true)}/>
+    {isChatbotOpen && <ChatBot onClose = {() => setIsChatbotOpen(false)}/>}
     </BrowserRouter>
   )
 }
